@@ -1,4 +1,4 @@
-# Developer Guide: Codebase Walkthrough
+# Codebase Walkthrough
 
 Welcome! Here's how the notification system is organized and how it all works together.
 
@@ -514,6 +514,5 @@ Then call in `database.js` after creating notification.
 2. **Read the code:** All files are well-commented
 3. **Break something:** Remove an isolation check, see test fail
 4. **Extend it:** Add a 5th notification type
-5. **Productionize:** Replace in-memory with PostgreSQL (2-3 hours)
 
 All code has comments. Start with `backend/src/index.js`.
