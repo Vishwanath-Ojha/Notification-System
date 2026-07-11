@@ -232,4 +232,3 @@ A: See [MANIFEST.md](MANIFEST.md)
 | CHECKLIST.md | 1,800 | 10 min | Evaluators |
 | **TOTAL** | **~16,000** | **~2.5 hours** | All paths |
 
-  QUICKSTART.md](QUICKSTART.md)** 👈
