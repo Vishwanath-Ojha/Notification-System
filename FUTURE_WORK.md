@@ -4,28 +4,9 @@ This is a functional, end-to-end system that demonstrates the core notification 
 
 ## High Priority (Next Sprint)
 
-### 1. Real Database Backend ⭐
-**Current:** In-memory storage (lost on server restart)  
-**Why it matters:** Persistence, multi-instance deployment, real audit trails
+ 
 
-**Implementation:**
-- Migrate from `database.js` to Prisma + PostgreSQL
-- Add schema migrations for production deployments
-- Set up connection pooling for performance
-- Add read replicas for notification queries at scale
-
-**Time:** 4-6 hours
-
-**Code change:**
-```javascript
-// From: notifications.find(n => n.tenantId === tenantId)
-const notifications = await prisma.notification.findMany({
-  where: { tenantId, OR: [{userId: null}, {userId}] },
-  orderBy: [{ read: 'asc' }, { createdAt: 'desc' }]
-});
-```
-
-### 2. WebSocket/SSE for Real-Time ⭐⭐
+### 1. WebSocket/SSE for Real-Time ⭐⭐
 **Current:** 15-30 second polling (10-20 requests/user/min)  
 **Target:** Real-time delivery (<1 second latency)
 
@@ -61,9 +42,8 @@ useEffect(() => {
 - Better user experience
 - Lower infrastructure costs
 
-**Time:** 6-8 hours (includes client + server + fallback)
 
-### 3. Authentication Real JWT Validation ⭐
+### 2. Authentication Real JWT Validation ⭐
 **Current:** Headers treated as trusted (fine for demo)  
 **Production requirement:** Validate JWTs against real provider
 
@@ -89,10 +69,9 @@ function validateJWT(req, res, next) {
   }
 }
 ```
+ 
 
-**Time:** 2-3 hours
-
-### 4. Notification Preferences ⭐⭐
+### 3. Notification Preferences ⭐⭐
 **Current:** All notifications; users can't filter  
 **Target:** User can enable/disable by type, channel, batching
 
@@ -125,13 +104,11 @@ app.patch('/user/notification-preferences/:id', (req, res) => {
 
 **UI:** Settings page with toggles
 
-**Time:** 6-8 hours
-
 ---
 
 ## Medium Priority (Following Month)
 
-### 5. Email Digests
+### 4. Email Digests
 Batch notifications into daily/weekly summaries instead of immediate spam
 
 ```javascript
@@ -148,9 +125,7 @@ digests.forEach(async (digest) => {
 });
 ```
 
-**Time:** 8-10 hours
-
-### 6. Notification History & Archival
+### 5. Notification History & Archival
 ```sql
 CREATE TABLE notification_archive (
   -- Same schema as notifications
@@ -166,7 +141,7 @@ DELETE FROM notifications
 
 **Time:** 4 hours
 
-### 7. Rich Formatting & Templates
+### 6. Rich Formatting & Templates
 **Current:** plain text body  
 **Target:** Markdown/HTML with variables
 
@@ -185,9 +160,7 @@ const notification = await renderTemplate(template, {
 
 **Security:** Content Security Policy to prevent injection
 
-**Time:** 6-8 hours
-
-### 8. Analytics Dashboard
+### 7. Analytics Dashboard
 - Notification engagement (read %, click-through %)
 - Delivery latency
 - Error rates
@@ -202,13 +175,11 @@ const data = await getNotificationStats({
 // Visualization: Chart.js or similar
 ```
 
-**Time:** 8-10 hours
-
 ---
 
 ## Lower Priority (Nice to Have)
 
-### 9. Actions on Notifications
+### 8. Actions on Notifications
 Make notifications interactive—buttons in the notification itself
 
 ```json
@@ -226,9 +197,8 @@ Make notifications interactive—buttons in the notification itself
 
 Frontend renders buttons, tracks which was clicked.
 
-**Time:** 4-6 hours
-
-### 10. Push Notifications (Mobile)
+ 
+### 9. Push Notifications (Mobile)
 Firebase Cloud Messaging or similar for mobile apps
 
 ```javascript
@@ -244,9 +214,7 @@ await firebase.messaging().sendToDevice(deviceToken, {
 });
 ```
 
-**Time:** 6-8 hours
-
-### 11. Notification Search/Filter
+### 10. Notification Search/Filter
 ```javascript
 app.get('/notifications/search', (req, res) => {
   const { query, type, startDate, endDate } = req.query;
@@ -263,9 +231,7 @@ app.get('/notifications/search', (req, res) => {
 });
 ```
 
-**Time:** 4 hours
-
-### 12. Cursor-Based Pagination
+### 11. Cursor-Based Pagination
 Replace offset pagination (faster for large result sets)
 
 ```javascript
@@ -280,13 +246,11 @@ const query = {
 };
 ```
 
-**Time:** 3-4 hours
-
 ---
 
 ## Testing & Observability
 
-### 13. End-to-End Tests (Cypress/Playwright)
+### 12. End-to-End Tests (Cypress/Playwright)
 Test full flow: trigger event → see notification → interact with it
 
 ```javascript
@@ -303,9 +267,7 @@ cy.get('.mark-read-button').click();
 cy.contains('✓').should('be.visible');
 ```
 
-**Time:** 8-10 hours
-
-### 14. Error Tracking (Sentry)
+### 13. Error Tracking (Sentry)
 ```javascript
 import * as Sentry from "@sentry/node";
 
@@ -320,9 +282,8 @@ try {
 app.use(Sentry.Handlers.errorHandler());
 ```
 
-**Time:** 2 hours
 
-### 15. Performance Monitoring
+### 14. Performance Monitoring
 - Datadog/New Relic for server-side
 - Web Vitals for frontend
 
@@ -335,8 +296,7 @@ getFCP(console.log);
 getLCP(console.log);
 getTTFB(console.log);
 ```
-
-**Time:** 3-4 hours
+ 
 
 ---
 
@@ -384,28 +344,27 @@ ALTER TABLE notifications ADD COLUMN archived_at TIMESTAMP;
 
 ## Time Estimates Summary
 
-| Feature | Priority | Time | Impact |
-|---------|----------|------|--------|
-| PostgreSQL + Prisma | High | 6h | Must-have for production |
-| WebSocket/SSE | High | 8h | Dramatically better UX |
-| JWT Validation | High | 2h | Security requirement |
-| Preferences | High | 8h | Reduces notification fatigue |
-| Email Digests | Medium | 10h | Nice to have, medium effort |
-| Analytics | Medium | 10h | Insights, medium effort |
-| E2E Tests | Medium | 10h | Confidence in changes |
-| Push Notifications | Low | 8h | Mobile support, high effort |
-| Cursor Pagination | Low | 4h | Scale, low effort |
-| **Total (all)** | — | **74h** | ~2 weeks of eng time |
+| Feature | Priority | Impact |
+|---------|----------|--------|
+| PostgreSQL + Prisma | High | Must-have for production |
+| WebSocket/SSE | High | Dramatically better UX |
+| JWT Validation | High | Security requirement |
+| Preferences | High | Reduces notification fatigue |
+| Email Digests | Medium | Nice to have, medium effort |
+| Analytics | Medium | Insights, medium effort |
+| E2E Tests | Medium | Confidence in changes |
+| Push Notifications | Low | Mobile support, high effort |
+| Cursor Pagination | Low | Scale, low effort |
 
 ---
 
 ## What I'd Do on Day 1 of Continuing This
 
-1. **Migrate to PostgreSQL** (6h) — Everything depends on a real database
-2. **Add WebSocket** (8h) — Users see results instantly, massive UX win
-3. **Write integration tests** (4h) — Catch regressions early
-4. **Deploy to staging** (2h) — Actually run this thing
-5. **Get user feedback** (async) — Does the feature matter? Are there pain points?
+1. **Migrate to PostgreSQL** — Everything depends on a real database
+2. **Add WebSocket** — Users see results instantly, massive UX win
+3. **Write integration tests** — Catch regressions early
+4. **Deploy to staging** — Actually run this thing
+5. **Get user feedback** — Does the feature matter? Are there pain points?
 
 If notifications aren't heavily used → lower priority on the roadmap.  
 If users love it → fast-track WebSocket + preferences.
