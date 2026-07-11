@@ -2,7 +2,7 @@
 
 A complete tenant-aware notification system for an AI-native CRM, demonstrating proper isolation, event-driven patterns, and end-to-end integration.
 
-## Quick Start
+## Quick Start: Simmply visit notification-system-vn-ojha.vercel.app
 
 ### Prerequisites
 - Node.js 18+ (https://nodejs.org)
@@ -300,7 +300,4 @@ curl -X POST http://localhost:3001/demo/trigger?scenario=member_invited \
 - **Input validation:** Basic checks on required fields. Add sanitization for production.
 
 ---
-
-**Built for:** Full-stack challenge (Agency CRM notification system)  
-**Tech Stack:** Node.js + Express, Next.js, JavaScript  
-**Time to run:** ~5 minutes (npm install + start both servers)
+ 
