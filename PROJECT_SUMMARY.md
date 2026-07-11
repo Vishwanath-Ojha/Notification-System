@@ -8,7 +8,7 @@ A complete, production-ready notification system for an AI-native CRM with:
 - 5 core endpoints (create, list, count, mark read, mark all read)
 - Strict tenant isolation at database layer
 - Event-driven trigger system with 4 demo scenarios
-- In-memory storage (production-ready with PostgreSQL)
+- PostgreSQL database
 - Header-based auth (stands in for real JWT validation)
 
 ✅ **Frontend UI** (Next.js + React)
@@ -107,7 +107,9 @@ FullStackChallenge/
 
 ## How to Run It
 
-### Quick Start (3 minutes)
+### Quick Start: Simply visit notification-system-vn-ojha.vercel.app 
+
+### For running it in local machine:
 
 ```bash
 # Terminal 1: Backend
@@ -181,12 +183,6 @@ Try these contexts:
 ---
 
 ## Design Decisions
-
-### Why In-Memory Storage?
-- Fast iteration and testing
-- All core logic proven without DB complexity
-- Production migration path clear: replace `database.js` with Prisma + PostgreSQL
-- Seed data loads on startup for consistency
 
 ### Why Polling Instead of WebSocket?
 - Simpler to understand and debug
