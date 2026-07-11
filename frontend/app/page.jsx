@@ -1,24 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import NotificationBell from '@/components/NotificationBell';
 import './page.css';
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const [tenantId, setTenantId] = useState('');
-  const [userId, setUserId] = useState('');
-  const [apiUrl, setApiUrl] = useState('http://localhost:3001');
-
-  useEffect(() => {
-    // Extract from URL params if available
-    const paramTenant = searchParams.get('tenantId') || 't1';
-    const paramUser = searchParams.get('userId') || 'u1';
-    
-    setTenantId(paramTenant);
-    setUserId(paramUser);
-  }, [searchParams]);
+  const [tenantId, setTenantId] = useState('t1');
+  const [userId, setUserId] = useState('u1');
+  const [apiUrl, setApiUrl] = useState(
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
+);
 
   const handleTriggerEvent = async (scenario) => {
     try {
