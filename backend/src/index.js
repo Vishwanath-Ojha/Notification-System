@@ -23,11 +23,12 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-app.use(extractContext);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
+
+app.use(extractContext);
 
 app.post('/notifications', async (req, res) => {
   const { type, title, body, userId } = req.body;
