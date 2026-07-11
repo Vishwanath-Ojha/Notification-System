@@ -2,8 +2,7 @@
 
 A complete tenant-aware notification system for an AI-native CRM, demonstrating proper isolation, event-driven patterns, and end-to-end integration.
 
-## Quick Start: Simmply visit notification-system-vn-ojha.vercel.app
-
+## Quick Start: Simmply visit https://notification-system-vn-ojha.vercel.app/
 ### For running it locally follow these steps:-
 ### Prerequisites
 - Node.js 18+ (https://nodejs.org)
