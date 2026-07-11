@@ -314,7 +314,7 @@ out/
 ---
 
 ## Quick Reference
-Simply visit https://notification-system-vw6h.onrender.com to access this web application. 
+Simply visit notification-system-vn-ojha.vercel.app to access this web application. 
 
 **For running it locally:**
 **Start Backend:**
@@ -346,6 +346,4 @@ http://localhost:3001
 ```
 http://localhost:3000
 ```
-
-**Time to understand:** 30 minutes
-**Time to productionize:** 2-4 weeks
+ 
