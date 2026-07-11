@@ -40,7 +40,7 @@ backend/src/
 │   ├─   2 demo endpoints
 │   └── Seed data on startup
 │
-├── database.js                   # In-memory notification store (240 lines)
+├── database.js                   # PostgreSQL Database
 │   ├── Notification storage
 │   ├── Query operations
 │   ├── Isolation enforcement
@@ -135,22 +135,6 @@ frontend/components/
 
 ---
 
-## File Count Summary
-
-| Category | Count | Total Lines |
-|----------|-------|------------|
-| Documentation | 7 | ~8,500 |
-| Backend Source | 4 | ~760 |
-| Backend Tests | 1 | ~220 |
-| Backend Config | 2 | ~25 |
-| Frontend Source | 2 | ~330 |
-| Frontend Components | 2 | ~380 |
-| Frontend Config | 3 | ~50 |
-| Git Config | 3 | ~20 |
-| **TOTAL** | **27** | **~10,280** |
-
----
-
 ## File Purposes & Key Responsibilities
 
 ### Documentation Files
@@ -184,49 +168,14 @@ frontend/components/
 | NotificationBell.css | Bell styling | Bell, badge, dropdown, notifications |
 
 ---
-
-## Lines of Code Breakdown
-
-```
-Documentation:           ~8,500 lines
-├─ README.md:           ~1,200 lines
-├─ INTEGRATION.md:      ~3,500 lines
-├─ DEVELOPER_GUIDE.md:  ~1,800 lines
-├─ FUTURE_WORK.md:      ~1,500 lines
-├─ QUICKSTART.md:       ~250 lines
-├─ PROJECT_SUMMARY.md:  ~350 lines
-└─ MANIFEST.md:         ~400 lines
-
-Backend Code:           ~1,000 lines
-├─ index.js:            ~400 lines
-├─ database.js:         ~240 lines
-├─ triggers.js:         ~80 lines
-├─ middleware.js:       ~40 lines
-└─ tests:               ~220 lines
-
-Frontend Code:          ~710 lines
-├─ page.jsx:            ~150 lines
-├─ NotificationBell.jsx: ~180 lines
-├─ page.css:            ~250 lines
-└─ NotificationBell.css: ~180 lines
-
-Configuration:          ~95 lines
-├─ package.json files:  ~40 lines
-├─ Config files:        ~30 lines
-└─ .gitignore files:    ~25 lines
-
-TOTAL: ~10,305 lines
-```
-
----
-
+ 
 ## Runtime Requirements
 
 ### Backend
 - **Runtime:** Node.js 18+
 - **Dependencies:** Express, CORS
 - **Port:** 3001
-- **Storage:** In-memory (seed data)
+- **Storage:** PostgreSQL intitalised with seed data
 - **Performance:** <10ms queries, ~100 queries/second capacity
 
 ### Frontend
@@ -338,19 +287,6 @@ out/
 
 ---
 
-## Deployment Readiness
-
-| Component | Prod Ready | Notes |
-|-----------|-----------|-------|
-| Backend API | 90% | Add real DB, rate limiting, error tracking |
-| Frontend UI | 95% | Add analytics, error tracking |
-| Tenant Isolation | 100% | Fully tested and verified |
-| Documentation | 100% | Comprehensive and clear |
-| Tests | 100% | Isolation tests comprehensive |
-| Performance | 80% | Good for 10k users, scale to 100k with caching |
-
----
-
 ## How to Navigate This Project
 
 1. **First time?** → Read `QUICKSTART.md` (3 min)
@@ -375,15 +311,12 @@ out/
 **For Changing Sort Order:**
 - Modify: `backend/src/database.js` function `getUserNotifications()`
 
-**For Adding Real Database:**
-- Replace: `backend/src/database.js` (swap to Prisma/ORM)
-- Modify: `backend/package.json` (add prisma, @prisma/client)
-- Add: Migration files
-
 ---
 
 ## Quick Reference
+Simply visit https://notification-system-vw6h.onrender.com to access this web application. 
 
+**For running it locally:**
 **Start Backend:**
 ```bash
 cd backend && npm install && npm start
@@ -414,10 +347,5 @@ http://localhost:3001
 http://localhost:3000
 ```
 
----
-
-**Total Project:** 27 files, ~10,280 lines, ~8.5k words documentation
-**Status:** ✅ Complete and ready to use
-**Time to run:** 3 minutes
 **Time to understand:** 30 minutes
 **Time to productionize:** 2-4 weeks
