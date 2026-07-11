@@ -2,7 +2,9 @@
 
 Welcome! You have a complete, working notification system. Here's what to do:
 
-## Option 1: "Just Show Me" (5 minutes)
+## Option 1: Visit the web application at notification-system-vn-ojha.vercel.app
+
+## Or to run it locally follow these steps:-
 
 ```bash
 # Terminal 1 - Backend
@@ -79,8 +81,8 @@ Read in this order:
 
 ## ✅ What's Working
 
-- ✅ Backend API running on port 3001
-- ✅ Frontend app running on port 3000
+- ✅ Backend API running on https://notification-system-vw6h.onrender.com
+- ✅ Frontend app running on notification-system-vn-ojha.vercel.app
 - ✅ Notifications created, listed, marked as read
 - ✅ Tenant isolation strictly enforced
 - ✅ Tests verify security
@@ -121,43 +123,4 @@ Once both servers are running:
 | **[FUTURE_WORK.md](FUTURE_WORK.md)** | What's next |
 | **[DELIVERY.md](DELIVERY.md)** | Summary |
 | **[CHECKLIST.md](CHECKLIST.md)** | Requirements |
-
----
-
-## 🎯 Next Steps
-
-1. **Run it** — 3 minutes
-2. **Understand the code** — 30 minutes (with DEVELOPER_GUIDE.md)
-3. **Plan integration** — 30 minutes (with INTEGRATION.md)
-4. **Build next features** — See FUTURE_WORK.md
-
----
-
-## ❓ Questions?
-
-- **How do I run it?** → QUICKSTART.md
-- **How does it work?** → PROJECT_SUMMARY.md + DEVELOPER_GUIDE.md
-- **How do I integrate it?** → INTEGRATION.md
-- **What's the roadmap?** → FUTURE_WORK.md
-- **Are all requirements met?** → CHECKLIST.md
-- **Where's a specific file?** → MANIFEST.md
-
----
-
-## 🎉 You're Ready!
-
-Everything is set up and tested. Just run the commands above and you'll have:
-- A working notification system
-- Demo UI with all features
-- Tests verifying tenant isolation
-- 10 guides explaining everything
-
-Have fun! 🚀
-
----
-
-**Time to running:** ~5 minutes  
-**Time to understanding:** ~30 minutes  
-**Time to integrating:** ~2-4 weeks
-
-👉 **Pick an option above and get started!**
+ 
