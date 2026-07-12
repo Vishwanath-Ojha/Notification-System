@@ -2,7 +2,7 @@
 
 Welcome! You have a complete, working notification system. Here's what to do:
 
-## Option 1: Visit the web application at notification-system-vn-ojha.vercel.app
+## Option 1: Visit the web application at https://notification-system-vn-ojha.vercel.app/
 
 ## Or to run it locally follow these steps:-
 
@@ -82,7 +82,7 @@ Read in this order:
 ## ✅ What's Working
 
 - ✅ Backend API running on https://notification-system-vw6h.onrender.com
-- ✅ Frontend app running on notification-system-vn-ojha.vercel.app
+- ✅ Frontend app running on https://notification-system-vn-ojha.vercel.app/
 - ✅ Notifications created, listed, marked as read
 - ✅ Tenant isolation strictly enforced
 - ✅ Tests verify security
