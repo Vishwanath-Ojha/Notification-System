@@ -7,7 +7,7 @@ Welcome to the Full-Stack Notification System! Here's where to find everything.
 ## 🚀 **START HERE** (Pick Your Path)
 
 ### I want to **run it RIGHT NOW** 
-→  Just visit notification-system-vn-ojha.vercel.app
+→  Just visit https://notification-system-vn-ojha.vercel.app/
 
 ### I want to **run it on my local machine**
 **Copy-paste commands:**
