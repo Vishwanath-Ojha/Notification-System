@@ -243,7 +243,6 @@ npm install          # Installs: next, react, react-dom
 - Cross-tenant attack scenarios
 
 ✅ **Scalability**
-- Architectural readiness for PostgreSQL migration
 - Event-driven pattern for async processing
 - Path to WebSocket for real-time
 
