@@ -2,7 +2,7 @@
 
 A complete tenant-aware notification system for an AI-native CRM, demonstrating proper isolation, event-driven patterns, and end-to-end integration.
 
-## Quick Start: Simmply visit https://notification-system-vn-ojha.vercel.app/
+## Quick Start: Simply visit https://notification-system-vn-ojha.vercel.app/
 ### For running it locally follow these steps:-
 ### Prerequisites
 - Node.js 18+ (https://nodejs.org)
@@ -191,17 +191,16 @@ See [INTEGRATION.md](./INTEGRATION.md) for a detailed write-up on how to wire th
 ## What I'd Do With More Time
 
 1. **Real WebSocket/SSE** — true real-time instead of polling
-2. **Database backend** — PostgreSQL with proper schema, migrations, indexing
-3. **Notification preferences** — let users choose channels (in-app, email, SMS) and filter by type
-4. **Batch operations** — mark multiple as read, soft-delete, archive
-5. **Analytics** — track notification engagement (opened, clicked, ignored)
-6. **Rich formatting** — support markdown/HTML in notification bodies with content security
-7. **Notification history** — archive old notifications separately
-8. **Internationalization** — template system with language strings
-9. **Email digests** — batch notifications into daily/weekly summaries
-10. **Integration tests** — end-to-end scenarios with real database
-11. **Rate limiting** — prevent notification spam
-12. **Error tracking** — Sentry/Rollbar integration for notification delivery failures
+2. **Notification preferences** — let users choose channels (in-app, email, SMS) and filter by type
+3. **Batch operations** — mark multiple as read, soft-delete, archive
+4. **Analytics** — track notification engagement (opened, clicked, ignored)
+5. **Rich formatting** — support markdown/HTML in notification bodies with content security
+6. **Notification history** — archive old notifications separately
+7. **Internationalization** — template system with language strings
+8. **Email digests** — batch notifications into daily/weekly summaries
+90. **Integration tests** — end-to-end scenarios with real database
+10. **Rate limiting** — prevent notification spam
+11. **Error tracking** — Sentry/Rollbar integration for notification delivery failures
 
 ## File Structure
 
