@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get everything running in just a second. Simply visit:- notification-system-vn-ojha.vercel.app to access the web application because it is deployed globally.
+Get everything running in just a second. Simply visit:- https://notification-system-vn-ojha.vercel.app/ to access the web application because it is deployed globally.
 
 ## To run it on your local machine:
 
